@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+}
+div {
+  box-sizing: border-box;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 25px;
+}
+.mainContainer {
+  background-color: gray;
+}
+
+.mainContainer ul {
+  margin: 25px;
+  padding: 0;
+  display: flex;
+  list-style: none;
+}
+.mainContainer li {
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.subContainer ul {
+  display: flex;
+  list-style: none;
+  font-size: 15px;
+}
+.subContainer li {
+  margin-right: 30px;
+}
+.thirdContainer {
+}
+.thirdContainer ul {
+  display: flex;
+  list-style: none;
+  margin: 25px;
+  padding: 0;
+}
+.thirdContainer li {
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.close {
+}

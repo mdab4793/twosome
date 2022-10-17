@@ -1,0 +1,9 @@
+.container {
+  width: 67%;
+  text-align: center;
+  border: solid 4px gray;
+}
+.container td {
+  padding: 25px;
+  border: solid 1px gray;
+}
