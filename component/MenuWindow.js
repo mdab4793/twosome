@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './css/MenuWindow.module.css';
+import styles from '../css/MenuWindow.module.css';
 
-import MenuPopup from './MenuPopup';
+import MenuPopup from '../component/MenuPopup';
 
 //전체 메뉴 탭
 const MenuWindow = ({ item }) => {

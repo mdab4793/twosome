@@ -1,11 +1,11 @@
-import Main from './Main';
-import Menu from './Menu';
+import Menu from './component/Menu';
+import Main from './component/Main';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
-import MenuPopup from './MenuPopup';
+import MenuPopup from './component/MenuPopup';
 import { Route, Routes } from 'react-router-dom';
-import MenuWindow from './MenuWindow';
+
+import MenuWindow from './component/MenuWindow';
 
 function App() {
   let [item, setItem] = useState([]);

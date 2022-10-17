@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import styles from './css/MenuPopup.module.css';
+import styles from '../css/MenuPopup.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem, addCount, addMin } from './store.js';
+import { addItem, addCount, addMin } from '../store.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMugHot,

@@ -1,6 +1,12 @@
-import styles from './css/Menu.module.css';
+import styles from '../css/Menu.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCount, addMin, addItem, removeItem, tumDiscount } from './store.js';
+import {
+  addCount,
+  addMin,
+  addItem,
+  removeItem,
+  tumDiscount,
+} from '../store.js';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 const Menu = ({ item }) => {
