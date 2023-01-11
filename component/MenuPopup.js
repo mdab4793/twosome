@@ -283,6 +283,7 @@ const MenuPopup = ({ item, popup }) => {
                 bean: bean,
                 takeout: takeout,
                 price: item[id]?.price,
+                discount: item[id]?.discount,
               })
             );
             navgate('/');

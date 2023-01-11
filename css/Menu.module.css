@@ -1,9 +1,6 @@
-/* .container {
-  height: 400px;
-} */
-
 .wrapper {
   display: flex;
+  width: 100%;
   height: 300px;
 }
 .table {
@@ -15,8 +12,6 @@
 
   text-align: center;
 }
-.mainTbody {
-}
 
 .mainTbody td {
   text-align: center;
@@ -24,8 +19,7 @@
 .product {
   width: 300px;
 }
-.subTbody {
-}
+
 .subTbody button {
   padding: 10px;
   width: 40px;
@@ -50,32 +44,260 @@
   background-color: rgb(177, 177, 177);
   color: rgb(0, 0, 0);
 }
+.section {
+  width: 450px;
+  height: 800px;
+}
 
 .calBox {
   background-color: black;
-  width: 28rem;
+  width: 100%;
   height: 100px;
+  font-size: 20px;
   color: white;
-  border: solid 4px gray;
 }
+
 .calQuan {
-  border: solid 4px gray;
   height: 300px;
-  text-align: center;
+  font-size: 24px;
+  width: 100%;
+}
+
+.cal {
+  text-align: justify;
+  height: 45px;
+  padding-top: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 3px;
+  border-bottom: dotted rgb(154, 154, 214);
+}
+.calChange {
+  text-align: justify;
+  height: 45px;
+  padding-top: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 3px;
+}
+.cal:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+.calChange:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
 }
 .calEmpty {
   background-color: rgb(90, 90, 147);
   height: 100px;
 }
+.numpad {
+  height: 315px;
+  border-bottom: underline red;
+}
+.display {
+  width: 97.5%;
+  height: 40px;
+  border: solid 4px rgb(160, 159, 159);
+}
+.numberWrapper button {
+  width: 33.2%;
+  height: 65px;
+  font-weight: bold;
+}
 .sideWrapper {
   text-align: center;
+  position: absolute;
+  width: 185px;
+  height: 815px;
+  flex-direction: column;
+  display: flex;
 }
-.sideWrapper div {
-  width: 11rem;
+.sideWrapper button {
   height: 68px;
   background-color: rgb(90, 90, 147);
-  border: solid 3px gray;
-  padding-top: 10%;
+  border: solid 2px gray;
+  padding-top: 8px;
   color: white;
+  text-align: center;
   font-weight: bold;
+}
+
+.sideUse:hover {
+  background-color: rgb(45, 45, 103);
+}
+.cardBack {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  background-color: white;
+  position: absolute;
+  width: 1200px;
+  height: 700px;
+  align-items: center;
+}
+.card header {
+  padding-left: 18px;
+  display: flex;
+  background-color: brown;
+  color: white;
+}
+.cardClose {
+  padding-left: 1000px;
+}
+.cardMainContainer {
+  display: flex;
+}
+.cardMain {
+  width: 100%;
+}
+.cardMain div {
+  color: black;
+  width: 33.3%;
+  height: 65px;
+  padding-left: 30px;
+  font-size: 20px;
+  border-style: none;
+  display: flex;
+  padding-top: 12px;
+}
+
+.cardMain input {
+  width: 300px;
+  height: 40px;
+}
+.cardPart {
+  margin-top: 40px;
+}
+.cardInput {
+  font-size: 50px;
+  margin-top: 20px;
+  margin-left: 15px;
+  padding-right: 5px;
+}
+.cardInput button {
+  width: 200px;
+  height: 70px;
+  font-size: 20px;
+  margin-left: 10px;
+  background-color: black;
+  color: white;
+  border-style: none;
+  font-weight: 600;
+}
+.cardInput button:hover {
+  background-color: gray;
+}
+.cardSub {
+  position: absolute;
+  width: 20%;
+  right: 450px;
+  top: 150px;
+  text-align: center;
+}
+.cardSub div {
+  color: black;
+  font-size: 25px;
+  border-style: none;
+}
+.cardSubTotal {
+  margin-top: 100px;
+}
+.cardThird {
+  position: absolute;
+  width: 20%;
+  right: 100px;
+  top: 110px;
+}
+.cardThird div {
+  border-style: none;
+}
+
+.cardNumberWrapper button {
+  width: 33.3%;
+  height: 75px;
+}
+.cardThirdCheck button {
+  width: 100%;
+  height: 60px;
+  margin-top: 15px;
+  font-size: 20px;
+}
+.cardThirdCheck button:hover {
+  background-color: gray;
+  border-style: none;
+}
+footer {
+  color: black;
+  width: 100%;
+  padding-right: 85%;
+  font-size: 17px;
+  margin-top: 70px;
+  margin-left: 10px;
+}
+.modalBack {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modalContainer {
+  background-color: rgb(72, 72, 117);
+  width: 550px;
+  height: 230px;
+}
+.modalHead {
+  background-color: white;
+  width: 100%;
+  height: 60px;
+  display: flex;
+}
+.modalHead h3 {
+  padding-left: 12px;
+}
+.modalHead h6 {
+  padding-left: 12px;
+}
+.modalDiscount {
+  color: white;
+  font-size: 22px;
+  padding: 10px;
+  text-align: center;
+}
+.modalWrapper {
+  background-color: white;
+  height: 55px;
+  padding-top: 8px;
+  text-align: center;
+}
+.modalFooter {
+  display: flex;
+}
+.modalFooter button {
+  margin-left: 210px;
+  width: 140px;
+  height: 55px;
+  margin-top: 5px;
+}
+.modalCount {
+  color: white;
+  font-size: 20px;
+  padding-top: 20px;
+  padding-left: 15px;
 }

@@ -1016,7 +1016,7 @@
     "id": 105,
     "name": "텀블러할인",
     "filter": "discount",
-
+    "discount": -300,
     "price": -300
   }
 ]

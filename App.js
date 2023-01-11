@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import MenuPopup from './component/MenuPopup';
 import { Route, Routes } from 'react-router-dom';
-
 import MenuWindow from './component/MenuWindow';
 
 function App() {
@@ -24,10 +23,13 @@ function App() {
   return (
     <body>
       <Routes>
-        <Route path='/' element={<Main item={item} />} />
+        <Route path='/' element={<Main item={item} />} />{' '}
+        <Route path='/pos-awesome' element={<Main />} />
+        <Route path='/pos-awesome/' element={<Main />} />
         <Route path='/menu' element={<Menu item={item} />} />
         <Route path='/menuwindow' element={<MenuWindow item={item} />} />
         <Route path='/menupopup/:id' element={<MenuPopup item={item} />} />
+        <Route path='*' element={<Main />} />
       </Routes>
     </body>
   );
