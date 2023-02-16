@@ -9,11 +9,12 @@ import {
   tumDiscount,
 } from '../store.js';
 import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Menu = ({ item }) => {
   let state = useSelector((state) => state);
   let dispatch = useDispatch();
-
+  const navigate = useNavigate();
   // let [click, setClick] = useState([]);
   // const Clickhandler = () => {
   //   for (let i = 0; i < 200; i++) {
@@ -35,6 +36,16 @@ const Menu = ({ item }) => {
   const CreditClose = () => {
     setCredit(false);
   };
+  //관리창 팝업
+  const [manage, setManage] = useState(false);
+
+  const managePopup = () => {
+    setManage(true);
+  };
+  const manageClose = () => {
+    setManage(false);
+  };
+
   //hot,ice 글자색깔 선택 변수
 
   let [white, setWhite] = useState();
@@ -154,7 +165,7 @@ const Menu = ({ item }) => {
       </div>
       <scticon className={styles.section}>
         <div className={styles.calBox}>
-          <span>신용카드(일반)</span> : <span> 6,100원</span>
+          <span></span> <span></span>
         </div>
         <div>
           <div className={styles.calQuan}>
@@ -172,14 +183,14 @@ const Menu = ({ item }) => {
               <span> {discountTotal}</span>
             </div> */}
             <div className={styles.cal}>
-              <span> 받을금액 </span>
-              <span>{total}</span>
+              {/* <span> 받을금액 </span>
+              <span>{total}</span> */}
             </div>
             <div className={styles.cal}>
-              <span>받은금액 </span> <span> {total}</span>
+              {/* <span>받은금액 </span> <span> {total}</span> */}
             </div>
             <div className={styles.calChange}>
-              <span>거스름돈 </span> <span> 0</span>
+              {/* <span>거스름돈 </span> <span> 0</span> */}
             </div>
           </div>
           <div className={styles.calEmpty}>
@@ -247,8 +258,16 @@ const Menu = ({ item }) => {
           <button>할인</button>
           <button>결제</button>
           <button>영업</button>
-          <button>관리</button>
-        </div>{' '}
+          <button
+            className={styles.sideUse}
+            onClick={() => {
+              navigate('/menu');
+            }}
+          >
+            관리창
+          </button>
+        </div>
+
         {credit == true ? (
           <CreditCard CreditClose={CreditClose} total={total} />
         ) : null}
@@ -341,8 +360,8 @@ const CreditCard = (props) => {
                 4,
                 3,
                 2,
+                3,
                 1,
-                0,
                 '00',
                 '000',
                 'X',

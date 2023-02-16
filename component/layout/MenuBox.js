@@ -1,53 +1,20 @@
-import styles from '../css/MenuWindow.module.css';
-import { useState } from 'react';
-import axios from 'axios';
-import MenuBox from './layout/MenuBox';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-const CoffeeTab = ({
-  coffeeTab,
-  item,
-  bever,
-  tea,
-  bottle,
-  isBackColor,
-  setISBackColor,
-}) => {
-  if (coffeeTab == 0) {
-    return (
-      <CoffeeMenu
-        item={item}
-        isBackColor={isBackColor}
-        setISBackColor={setISBackColor}
-      />
-    );
-  }
-  if (coffeeTab == 1) {
-    return <Beverage bever={bever} />;
-  }
-  if (coffeeTab == 2) {
-    return <Tea tea={tea} />;
-  }
-  if (coffeeTab == 3) {
-    return <Bottle bottle={bottle} />;
-  }
-};
-
-//https://velog.io/@isabel_noh/React-%EB%AA%A8%EB%8B%AC%EC%B0%BD-%EB%A7%8C%EB%93%A4%EA%B8%B0%EB%AA%A8%EB%8B%AC%EC%B0%BD-%EC%99%B8%EB%B6%80%ED%81%B4%EB%A6%AD%EC%8B%9C-%ED%99%88%ED%99%94%EB%A9%B4%EC%9C%BC%EB%A1%9C-%EC%9D%B4%EB%8F%99
-//모달창 맨위전체오기 참조
-//에스프레소음료탭
-const CoffeeMenu = ({ item }) => {
+import { useEffect, useState } from 'react';
+import styles from '/Users/zio/Desktop/node/cafe-pos/src/css/MenuWindow.module.css';
+import styled from 'styled-components';
+import axios from 'axios';
+const MenuBox = ({ layout, layoutDel }) => {
   //한 화면에 메뉴24개까지만 보이기
   let [limit, setLimit] = useState(24);
   //첫페이지
   let [page, setPage] = useState(1);
   let offset = (page - 1) * limit;
-  const layoutNumPages = Math.ceil(item && item.length / limit);
+  const layoutNumPages = Math.ceil(layout && layout.length / limit);
 
   // 삭제핸들러;
   const deleteHandler = (e) => {
     const menuNum = e.target.dataset.id;
-    axios.delete(`http://localhost:8080/delete/coffee`, {
+    axios.delete(`http://localhost:8080/delete/${layoutDel}`, {
       //delete할땐 data에 담아서 보내줘야한다.
       data: {
         _id: menuNum,
@@ -56,17 +23,17 @@ const CoffeeMenu = ({ item }) => {
   };
   {
     /*
-      map 오류가 뜰때 
-      https://tlsdnjs12.tistory.com/m/56
-      slice 갯수자를때
-      */
+       map 오류가 뜰때 
+       https://tlsdnjs12.tistory.com/m/56
+       slice 갯수자를때
+       */
   }
 
   return (
-    <body className={styles.menuWindowContainer}>
+    <body>
       <div className={styles.menuContainer}>
-        {item.menu &&
-          item.menu
+        {layout &&
+          layout
             .slice(offset, offset + limit)
             .map(({ _id, title, category }, i) => {
               if (
@@ -87,7 +54,7 @@ const CoffeeMenu = ({ item }) => {
                         data-category={category}
                       >
                         <Link to={`/edit/${_id}`}>메뉴변경</Link>
-                      </button>
+                      </button>{' '}
                       <button
                         className={styles.menuDelBtn}
                         data-id={_id}
@@ -154,39 +121,4 @@ const Button = styled.button`
     text-align: center;
   }
 `;
-
-//에이드,드링크음료탭
-const Beverage = ({ bever }) => {
-  const [layout, setLayout] = useState(bever.menu && bever.menu);
-  const [layoutDel, setLayoutDel] = useState('bever');
-
-  return (
-    <body className={styles.menuWindowContainer}>
-      <MenuBox bever={bever} layout={layout} layoutDel={layoutDel} />
-    </body>
-  );
-};
-//티백탭
-const Tea = ({ tea }) => {
-  const [layout, setLayout] = useState(tea.menu && tea.menu);
-  const [layoutDel, setLayoutDel] = useState('tea');
-
-  return (
-    <body className={styles.menuWindowContainer}>
-      <MenuBox tea={tea} layout={layout} layoutDel={layoutDel} />
-    </body>
-  );
-};
-//병음료탭
-const Bottle = ({ bottle }) => {
-  const [layout, setLayout] = useState(bottle.menu && bottle.menu);
-  const [layoutDel, setLayoutDel] = useState('bottle');
-
-  return (
-    <body className={styles.menuWindowContainer}>
-      <MenuBox bottle={bottle} layout={layout} layoutDel={layoutDel} />
-    </body>
-  );
-};
-
-export default CoffeeTab;
+export default MenuBox;

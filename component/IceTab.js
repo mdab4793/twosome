@@ -1,120 +1,51 @@
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from '../css/MenuWindow.module.css';
-const IceTab = ({ iceTab, item }) => {
+
+import MenuBox from './layout/MenuBox';
+const IceTab = ({
+  iceTab,
+  ice,
+  isAdd,
+  isBackColor,
+  setISBackColor,
+  sherbet,
+}) => {
   if (iceTab == 0) {
-    return <IceMenu item={item} />;
+    return (
+      <IceMenu
+        ice={ice}
+        iceTab={iceTab}
+        isAdd={isAdd}
+        isBackColor={isBackColor}
+        setISBackColor={setISBackColor}
+      />
+    );
   }
   if (iceTab == 1) {
-    return <SherbetMenu item={item} />;
+    return <SherbetMenu sherbet={sherbet} />;
   }
 };
 //아이스크랩메뉴탭
-const IceMenu = ({ item }) => {
+const IceMenu = ({ ice }) => {
+  const [layout, setLayout] = useState(ice.menu && ice.menu);
+  const [layoutDel, setLayoutDel] = useState('ice');
+
   return (
-    <body>
-      <table className={styles.menuWrapper}>
-        <tbody>
-          <tr>
-            <td>
-              <Link to='/menupopup/27'>{item[27]?.name}</Link>
-            </td>
-            <td>
-              <Link to='/menupopup/28'>{item[28]?.name}</Link>
-            </td>
-            <td></td>
-            <td>
-              <Link to='/menupopup/29'>{item[29]?.name}</Link>
-            </td>
-            <td></td>
-            <td>스푼</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>왼쪽</td>
-            <td>오른쪽</td>
-          </tr>
-        </tbody>
-      </table>
+    <body className={styles.menuWindowContainer}>
+      <MenuBox ice={ice} layout={layout} layoutDel={layoutDel} />
     </body>
   );
 };
 //빙수메뉴탭
-const SherbetMenu = () => {
+const SherbetMenu = ({ sherbet }) => {
+  const [layout, setLayout] = useState(sherbet.menu && sherbet.menu);
+  const [layoutDel, setLayoutDel] = useState('sherbet');
+
   return (
-    <body>
-      <table className={styles.menuWrapper}>
-        <tbody>
-          <tr>
-            <td>빙수</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>스푼</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>왼쪽</td>
-            <td>오른쪽</td>
-          </tr>
-        </tbody>
-      </table>
+    <body className={styles.menuWindowContainer}>
+      <MenuBox sherbet={sherbet} layout={layout} layoutDel={layoutDel} />
     </body>
   );
 };
+
 export default IceTab;

@@ -1,132 +1,30 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import styles from '../css/MenuWindow.module.css';
-
-const ProductTab = ({ productTab, item }) => {
+import MenuBox from './layout/MenuBox';
+const ProductTab = ({ productTab, snack, productset }) => {
   if (productTab == 0) {
-    return <Snack item={item} />;
+    return <Snack snack={snack} />;
   }
   if (productTab == 1) {
-    return <ProductSet item={item} />;
+    return <ProductSet productset={productset} />;
   }
 };
-const Snack = ({ item }) => {
+const Snack = ({ snack }) => {
+  const [layout, setLayout] = useState(snack.menu && snack.menu);
+  const [layoutDel, setLayoutDel] = useState('snack');
   return (
-    <body>
-      <table className={styles.menuWrapper}>
-        <tbody>
-          <tr>
-            <td>
-              <Link to='/menupopup/61'>
-                {item[61].name} <br />
-                {item[61].price}원
-              </Link>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>
-              <Link to='/menupopup/62'>
-                {item[62].name} <br />
-                {item[62].price}원
-              </Link>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>
-              <Link to='/menupopup/63'>
-                {item[63].name} <br />
-                {item[63].price}원
-              </Link>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>
-              <Link to='/menupopup/64'>
-                {item[64].name} <br />
-                {item[64].price}원
-              </Link>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>왼쪽</td>
-            <td>오른쪽</td>
-          </tr>
-        </tbody>
-      </table>
+    <body className={styles.menuWindowContainer}>
+      <MenuBox snack={snack} layout={layout} layoutDel={layoutDel} />
     </body>
   );
 };
-const ProductSet = ({ item }) => {
+const ProductSet = ({ productset }) => {
+  const [layout, setLayout] = useState(productset.menu && productset.menu);
+  const [layoutDel, setLayoutDel] = useState('productset');
   return (
-    <body>
-      <table className={styles.menuWrapper}>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>왼쪽</td>
-            <td>오른쪽</td>
-          </tr>
-        </tbody>
-      </table>
+    <body className={styles.menuWindowContainer}>
+      <MenuBox productset={productset} layout={layout} layoutDel={layoutDel} />
     </body>
   );
 };
