@@ -1,0 +1,45 @@
+.editContainer {
+  padding-left: 18px;
+  display: flex;
+  background-color: brown;
+  color: white;
+}
+.editHeader {
+  display: flex;
+}
+.editHeaderClose {
+  padding-left: 1700px;
+}
+.editContainer form {
+  width: 1000px;
+  height: 500px;
+  position: absolute;
+  padding-top: 150px;
+  color: black;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  font-size: 18px;
+}
+.editForm {
+  color: black;
+  margin: auto;
+  text-align: center;
+}
+.editForm input {
+  margin: 10px;
+}
+.editHide {
+  display: none;
+}
+
+.editForm button {
+  margin: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  border-style: none;
+  font-size: 14px;
+  font-weight: 900;
+}

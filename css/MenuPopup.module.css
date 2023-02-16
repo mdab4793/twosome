@@ -19,10 +19,10 @@
 .container {
   display: flex;
 }
-.wrapper {
-}
+
 .close {
   padding-left: 90%;
+  cursor: pointer;
 }
 
 .mainSection {
@@ -48,6 +48,7 @@
   border-style: none;
   background-color: rgb(95, 108, 128);
   color: white;
+  cursor: pointer;
 }
 .count p {
   width: 30px;
@@ -74,6 +75,7 @@
   height: 110px;
   margin-right: 5px;
   padding-top: 10px;
+  cursor: pointer;
 }
 .cart {
   width: 550px;
@@ -85,4 +87,5 @@
   position: relative;
   left: 1060px;
   top: 10px;
+  cursor: pointer;
 }
